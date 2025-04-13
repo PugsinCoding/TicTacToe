@@ -1,0 +1,13 @@
+html {
+    background-color: rgba(0, 0, 255, 0.1);
+}
+
+body {
+    margin: auto;
+    text-align: center;
+}
+
+img {
+    width: 30%;
+    height: 40%;
+}

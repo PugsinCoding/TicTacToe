@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Play a game of Tic Tac Toe!" />
     <link rel="stylesheet" href="TicTacToe.css" />
+    <script src="TicTacToe.js"></script>
     <title>TicTacToe</title>
 </head>
 
@@ -22,9 +23,44 @@
                 <br />Then, just click the spot you want to choose! Whoever gets three of their paw prints in a row
                 wins!
             </p>
-            <button>Click to Start Game!</button>
+            <button type="button" onclick="myFunction()" value="Button Text" id="myButton">Click to Start Game!</button>
         </section>
-        <section id="board"></section>
+        <section class="board" id="board-base" aria-disabled="true">
+            <div class="board" id="column-1">
+                <div class="square" id="1" value="unclicked" onclick="showPaw(1)">
+                    <img src="Images/Blank_TTT_Sprite.jpg" class="square-img" id="square-img 1" />
+                </div>
+                <div class="square" id="2" value="unclicked" onclick="showPaw(2)">
+                    <img src="Images/Blank_TTT_Sprite.jpg" class="square-img" id="square-img 2" />
+                </div>
+                <div class="square" id="3" value="unclicked" onclick="showPaw(3)">
+                    <img src="Images/Blank_TTT_Sprite.jpg" class="square-img" id="square-img 3" />
+                </div>
+            </div>
+            <div class="board" id="column-2">
+                <div class="square" id="4" value="unclicked" onclick="showPaw(4)">
+                    <img src="Images/Blank_TTT_Sprite.jpg" class="square-img" id="square-img 4" />
+                </div>
+                <div class="square" id="5" value="unclicked" onclick="showPaw(5)">
+                    <img src="Images/Blank_TTT_Sprite.jpg" class="square-img" id="square-img 5" />
+                </div>
+                <div class="square" id="6" value="unclicked" onclick="showPaw(6)">
+                    <img src="Images/Blank_TTT_Sprite.jpg" class="square-img" id="square-img 6" />
+                </div>
+            </div>
+            <div class="board" id="column-3">
+                <div class="square" id="7" value="unclicked" onclick="showPaw(7)">
+                    <img src="Images/Blank_TTT_Sprite.jpg" class="square-img" id="square-img 7" />
+                </div>
+                <div class="square" id="8" value="unclicked" onclick="showPaw(8)">
+                    <img src="Images/Blank_TTT_Sprite.jpg" class="square-img" id="square-img 8" />
+                </div>
+                <div class="square" id="9" value="unclicked" onclick="showPaw(9)">
+                    <img src="Images/Blank_TTT_Sprite.jpg" class="square-img" id="square-img 9" />
+                </div>
+            </div>
+        </section>
+        <button type="button" onclick="clearBoard()">CLEAR BOARD</button>
     </main>
 </body>
 

@@ -25,6 +25,7 @@ let pTurn = false;
 function disableBoard(){
     for(let i = 1; i < 10; i++){
         let selectedDiv = document.getElementById(i);
+        selectedDiv.querySelector('img').src="Images/Blank_TTT_Sprite.jpg";
         selectedDiv.style.pointerEvents = 'none';
         selectedDiv.hidden = true;
     }

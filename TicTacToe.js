@@ -35,6 +35,7 @@ function disableBoard(){
     buttonY.hidden = true;
     buttonN.hidden = true;
     document.getElementById("decision").innerHTML = "";
+    document.getElementById("startButton").disabled = false;
 }
 
 function startGame(){
@@ -45,6 +46,7 @@ function startGame(){
     }
     let base = document.getElementById("board-base");
     base.hidden = false;
+    document.getElementById("startButton").disabled = true;
 }
 
 function bTrue(selectedDiv, i){
@@ -156,6 +158,7 @@ function win(character){
         }
         if(character == 'b'){
             document.getElementById("decision").innerHTML = "Blue Paw Wins! Wanna Try Again?";
+            document.getElementById("decision").style.color = "blue";
             let buttonY = document.getElementById("yes");
             let buttonN = document.getElementById("no");
             buttonY.hidden = false;
@@ -163,6 +166,7 @@ function win(character){
         }
         else if(character == 'p'){
             document.getElementById("decision").innerHTML = "Pink Paw Wins! Wanna Try Again?";
+            document.getElementById("decision").style.color = "#e35483";
             let buttonY = document.getElementById("yes");
             let buttonN = document.getElementById("no");
             buttonY.hidden = false;

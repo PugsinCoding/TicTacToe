@@ -196,6 +196,7 @@ function scratchOrWin(){
     }
     else{
         document.getElementById("decision").innerHTML = "Scratch! Wanna Try Again?";
+        document.getElementById("decision").style.color = "black";
             let buttonY = document.getElementById("yes");
             let buttonN = document.getElementById("no");
             buttonY.hidden = false;

@@ -22,8 +22,29 @@ let index = [
 let bTurn = false;
 let pTurn = false;
 
-function myFunction(){
-    document.getElementById('board-base').ariaDisabled = false;
+function disableBoard(){
+    for(let i = 1; i < 10; i++){
+        let selectedDiv = document.getElementById(i);
+        selectedDiv.style.pointerEvents = 'none';
+        selectedDiv.hidden = true;
+    }
+    let base = document.getElementById("board-base");
+    let buttonY = document.getElementById("yes");
+    let buttonN = document.getElementById("no");
+    base.hidden = true;
+    buttonY.hidden = true;
+    buttonN.hidden = true;
+    document.getElementById("decision").innerHTML = "";
+}
+
+function startGame(){
+    for(let i = 1; i < 10; i++){
+        let selectedDiv = document.getElementById(i);
+        selectedDiv.style.pointerEvents = 'auto';
+        selectedDiv.hidden = false;
+    }
+    let base = document.getElementById("board-base");
+    base.hidden = false;
 }
 
 function bTrue(selectedDiv, i){
@@ -117,20 +138,6 @@ function whoseTurn(i){
     }
 }
 
-function clearBoard(){
-    for(let i = 1; i < 10; i++){
-        let selectDiv = document.getElementById(i);
-        selectDiv.querySelector("img").src = "Images/Blank_TTT_Sprite.jpg";
-        selectDiv.style.pointerEvents = 'auto';
-    }
-    for(let i = 0; i < 9; i++){
-        console.log(index[i]);
-        index[i] = '';
-    }
-    count = 0;
-    document.getElementById("decision").innerHTML = "";
-}
-
 function win(character){
     let winner = false;
     if((index[0] == character && index[1] == character && index[2] == character) || (index[3] == character && index[4] == character && index[5] == character) || (index[6] == character && index[7] == character && index[8] == character)){
@@ -148,12 +155,19 @@ function win(character){
             selectedDiv.style.pointerEvents = 'none';
         }
         if(character == 'b'){
-            document.getElementById("decision").innerHTML = "Blue Paw Wins!";
+            document.getElementById("decision").innerHTML = "Blue Paw Wins! Wanna Try Again?";
+            let buttonY = document.getElementById("yes");
+            let buttonN = document.getElementById("no");
+            buttonY.hidden = false;
+            buttonN.hidden = false;
         }
         else if(character == 'p'){
-            document.getElementById("decision").innerHTML = "Pink Paw Wins!";
+            document.getElementById("decision").innerHTML = "Pink Paw Wins! Wanna Try Again?";
+            let buttonY = document.getElementById("yes");
+            let buttonN = document.getElementById("no");
+            buttonY.hidden = false;
+            buttonN.hidden = false;
         }
-        return winner;
     }
     return winner;
 }
@@ -162,13 +176,52 @@ function win(character){
 
 function scratchOrWin(){
     if(win('b') == true){
-        document.getElementById("decision").innerHTML = "Blue Paw Wins!";
+        document.getElementById("decision").innerHTML = "Blue Paw Wins! Wanna Try Again?";
+            let buttonY = document.getElementById("yes");
+            let buttonN = document.getElementById("no");
+            buttonY.hidden = false;
+            buttonN.hidden = false;
     }
     else if(win('p') == true){
         console.log("Pink is Winner!");
-        document.getElementById("decision").innerHTML = "Pink Paw Wins!";
+        document.getElementById("decision").innerHTML = "Pink Paw Wins! Wanna Try Again?";
+            let buttonY = document.getElementById("yes");
+            let buttonN = document.getElementById("no");
+            buttonY.hidden = false;
+            buttonN.hidden = false;
     }
     else{
-        document.getElementById("decision").innerHTML = "Scratch!";
+        document.getElementById("decision").innerHTML = "Scratch! Wanna Try Again?";
+            let buttonY = document.getElementById("yes");
+            let buttonN = document.getElementById("no");
+            buttonY.hidden = false;
+            buttonN.hidden = false;
     }
+}
+
+function yesNo(character){
+    if(character == 'y'){
+        clearBoard();
+    }
+    else{
+        disableBoard();
+    }
+}
+
+function clearBoard(){
+    for(let i = 1; i < 10; i++){
+        let selectDiv = document.getElementById(i);
+        selectDiv.querySelector("img").src = "Images/Blank_TTT_Sprite.jpg";
+        selectDiv.style.pointerEvents = 'auto';
+    }
+    for(let i = 0; i < 9; i++){
+        console.log(index[i]);
+        index[i] = '';
+    }
+    count = 0;
+    document.getElementById("decision").innerHTML = "";
+    let buttonY = document.getElementById("yes");
+            let buttonN = document.getElementById("no");
+            buttonY.hidden = true;
+            buttonN.hidden = true;
 }

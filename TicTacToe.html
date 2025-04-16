@@ -10,7 +10,7 @@
     <title>TicTacToe</title>
 </head>
 
-<body>
+<body onload="disableBoard()">
     <main>
         <section id="intro">
             <h1>
@@ -23,10 +23,11 @@
                 <br />Then, just click the spot you want to choose! Whoever gets three of their paw prints in a row
                 wins!
             </p>
-            <button type="button" onclick="myFunction()" value="Button Text" id="myButton" disabled>Click to Start
-                Game!</button>
+            <button type="button" onclick="startGame()" value="Button Text" id="myButton">
+                Click to Start!
+            </button>
         </section>
-        <section class="board" id="board-base" aria-disabled="true">
+        <section class="board" id="board-base">
             <div class="board" id="column-1">
                 <div class="square" id="1" value="unclicked" onclick="whoseTurn(1)">
                     <img src="Images/Blank_TTT_Sprite.jpg" class="square-img" id="square-img 1" />
@@ -62,7 +63,8 @@
             </div>
         </section>
         <h2 id="decision"></h2>
-        <button type="button" onclick="clearBoard()" id="clear">CLEAR BOARD</button>
+        <button type="button" id="yes" class="decide" onclick="yesNo('y')">YES!</button>
+        <button type="button" id="no" class="decide" onclick="yesNo('n')">NO!</button>
     </main>
 </body>
 
